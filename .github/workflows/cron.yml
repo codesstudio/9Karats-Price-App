@@ -1,0 +1,24 @@
+name: Cron Job Runner
+
+on:
+  schedule:
+    - cron: "* * * * *" # Every 5 minutes (UTC)
+  workflow_dispatch:       # Allows manual run from GitHub
+
+jobs:
+  run-cron-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the cron script
+        run: node index.js
