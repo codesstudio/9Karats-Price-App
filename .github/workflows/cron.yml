@@ -2,7 +2,7 @@ name: Cron Job Runner
 
 on:
   schedule:
-    - cron: "* * * * *" # Every 5 minutes (UTC)
+    - cron: "*/5 * * * *" # Every 5 minutes (UTC)
   workflow_dispatch:       # Allows manual run from GitHub
 
 jobs:
